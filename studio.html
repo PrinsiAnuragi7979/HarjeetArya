@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>कस्तुरी डिजिटल फोटो स्टूडियो</title>
+  <meta name="description" content="कस्तुरी डिजिटल फोटो स्टूडियो — शादी फ़ोटोग्राफ़ी, प्री-वेडिंग, एल्बम डिज़ाइन और इवेंट कवरेज। संपर्क: +91-7084527930" />
+  <meta property="og:title" content="कस्तुरी डिजिटल फोटो स्टूडियो" />
+  <meta property="og:description" content="पेशेवर शादी फ़ोटोग्राफ़ी और वीडियोग्राफ़ी — आपकी यादें, हमारी कला।" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b3f1b1.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root{ --brand:#ff6600; --dark:#111; --muted:#666; --glass: rgba(255,255,255,0.85); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{font-family: 'Rubik', Arial, sans-serif; margin:0; color:#222; background:#fff; -webkit-font-smoothing:antialiased;}
+    header{background:var(--dark); color:var(--brand); text-align:center; padding:14px 16px; font-weight:700}
+    nav{display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(90deg,var(--brand),#ff8a33); position:sticky; top:0; z-index:1200; box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+    .logo{color:#fff; font-weight:700; font-size:18px} .nav-links{display:flex; gap:14px; align-items:center} .nav-links a{color:#fff; text-decoration:none; font-size:15px; padding:6px 8px; border-radius:6px} .nav-links a:hover{background:rgba(255,255,255,0.08)} .hamb{display:none; color:#fff; font-size:22px; cursor:pointer}
+    .hero{position:relative; height:520px; display:flex; align-items:center; justify-content:center; text-align:center; padding:22px; color:#fff; overflow:hidden;}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)); pointer-events:none;}
+    .hero-inner{position:relative; z-index:2; max-width:1000px} .hero h1{font-size:44px; line-height:1.05; margin-bottom:16px; text-shadow:0 6px 28px rgba(0,0,0,0.4)} .hero p{color:rgba(255,255,255,0.95); font-size:18px; margin-bottom:18px} .hero .cta{display:inline-flex; gap:12px; align-items:center; background:var(--brand); color:#fff; padding:14px 20px; border-radius:10px; font-weight:700; cursor:pointer; box-shadow:0 8px 20px rgba(255,102,0,0.18); border:none} .hero .cta:hover{transform:translateY(-3px); transition:all .25s ease}
+    .bg-layer{position:absolute; inset:0; background-size:cover; background-position:center; transition:opacity 1.2s ease; opacity:0} .bg-layer.show{opacity:1} .bg-overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45)); pointer-events:none}
+    section{padding:64px 20px; max-width:1150px; margin:0 auto} h2{color:var(--brand); font-size:30px; margin-bottom:18px; text-align:center} p.lead{color:var(--muted); text-align:center; max-width:850px; margin:8px auto 26px}
+    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px} .card{background:linear-gradient(180deg,#fff,#fff); border-radius:12px; padding:22px; box-shadow:0 8px 26px rgba(26,26,26,0.06); display:flex; gap:14px; align-items:center; transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s; transform-origin:center; border:1px solid rgba(0,0,0,0.03)} .card i{font-size:28px; color:var(--brand); width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(255,102,0,0.08); border-radius:10px} .card h3{font-size:18px; margin:0 0 4px} .card p{margin:0; color:var(--muted); font-size:14px} .card:hover{transform:translateY(-8px) rotateX(2deg); box-shadow:0 18px 40px rgba(30,30,30,0.12)}
+    .filter-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:18px} .filter-row button{padding:8px 14px; border-radius:8px; border:1px solid rgba(0,0,0,0.06); background:#fff; cursor:pointer} .filter-row button.active{background:var(--brand); color:#fff; border-color:transparent; box-shadow:0 10px 20px rgba(255,102,0,0.12)}
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px} .gallery img{width:100%; height:200px; object-fit:cover; border-radius:10px; cursor:pointer; transition:transform .25s ease, box-shadow .25s} .gallery img:hover{transform:scale(1.04); box-shadow:0 12px 36px rgba(0,0,0,0.18)}
+    .lightbox{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:1400} .lightbox img{max-width:92%; max-height:86%; border-radius:10px; box-shadow:0 20px 50px rgba(0,0,0,0.6)} .lightbox .close{position:absolute; top:18px; right:22px; color:#fff; font-size:28px; cursor:pointer}
+    .contact-grid{display:grid; grid-template-columns:1fr 340px; gap:30px; align-items:start} 
+    .contact-card{background:var(--glass); border-radius:12px; padding:18px; box-shadow:0 8px 30px rgba(0,0,0,0.06)} label{display:block; font-size:14px; margin-bottom:6px; color:#333} input, textarea{width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; margin-bottom:12px; font-size:15px} .submit{background:var(--brand); color:#fff; padding:12px 16px; border-radius:8px; border:none; font-weight:700; cursor:pointer}
+    footer{background:#0b0b0b; color:#ddd; padding:28px 18px; text-align:center} .socials a{color:#fff; margin:0 8px; font-size:18px; text-decoration:none}
+    @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} } @media (max-width:720px){ .hero{height:420px} .hero h1{font-size:28px} .nav-links{display:none} .hamb{display:block} }
+  </style>
+</head>
+<body>
+
+  <header>कस्तुरी डिजिटल फोटो स्टूडियो  (हरजीत आर्य)</header>
+
+  <nav>
+    <div class="logo">कस्तुरी डिजिटल फोटो स्टूडियो</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">होम</a>
+      <a href="#services">सेवाएँ</a>
+      <a href="#gallery">गैलरी</a>
+      <a href="#contact">संपर्क</a>
+    </div>
+    <div class="hamb" id="hamb" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</div>
+  </nav>
+
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="bg-layer" style="background-image:url('wedding-bg.jpg')"></div>
+    <div class="bg-layer" style="background-image:url('prinsi9.jpg')"></div>
+    <div class="bg-layer" style="background-image:url('prinsi18.webp')"></div>
+    <div class="bg-layer" style="background-image:url('prinsi14.jpg')"></div>
+    <div class="bg-layer" style="background-image:url('prinsi1.jpg')"></div>
+    <div class="bg-layer" style="background-image:url('prinsi2.jpg')"></div>
+    <div class="bg-layer" style="background-image:url('hr4.webp')"></div>
+
+    <div class="bg-overlay"></div>
+
+    <div class="hero-inner" data-aos="fade-up">
+      <h1 id="typingText">शादी की खूबसूरत यादें, हमेशा आपके साथ ❤️</h1>
+      <p class="lead">हम जो पल कैद करते हैं वह सिर्फ तस्वीरें नहीं — आपकी भावनाएँ, आपकी कहानी है।</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+        <button class="cta" onclick="location.href='#contact'"><i class="fas fa-calendar-check"></i> अभी बुक करें</button>
+        <a class="cta" style="background:#111;color:#fff" href="https://wa.me/917084527930" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i> चैट करें</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>हमारी सेवाएँ</h2>
+    <p class="lead">पेशेवर टीम, आधुनिक उपकरण और दिल से काम — हर कवर एक यादगार कहानी बनाते हैं।</p>
+    <div class="services" aria-live="polite">
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <i class="fas fa-camera-retro" aria-hidden="true"></i>
+        <div><h3>शादी फोटोग्राफी</h3><p>विवाह समारोह की हर छोटी-बड़ी अनुभूति को खूबसूरती से कैप्चर करना।</p></div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="120">
+        <i class="fas fa-video" aria-hidden="true"></i>
+        <div><h3>वीडियोग्राफी</h3><p>प्यारे लम्हों की रिकॉर्डिंग — सिनेमैटिक एंगल्स और प्रोसेसिंग के साथ。</p></div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="190">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+        <div><h3>प्री/पोस्ट वेडिंग शूट</h3><p>रोमांटिक सेटिंग्स और कस्टम लोकेशन शॉट्स।</p></div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="260">
+        <i class="fas fa-book-open" aria-hidden="true"></i>
+        <div><h3>एल्बम डिज़ाइन & एडिटिंग</h3><p>कस्टम एल्बम और हाई-क्वालिटी पोस्ट-प्रोसेसिंग।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <table width="80%" align="center"  height="300px" background="hr9.jpeg">
+        <tr align="center">
+            <td width="20%">
+                <img src="hr2.jpg" width="100%"  />
+            </td>
+            <td width="20%">
+                <img src="hr7.jpeg" width="100%"  />
+            </td>
+            <td width="20%">
+                <img src="hr3.jpeg" width="100%"  />
+            </td>
+            <td width="20%">
+                <img src="hr4.webp" width="100%"  />
+            </td>
+        </tr>
+ </table>
+
+  <section id="gallery">
+    <h2>गैलरी</h2>
+    <div class="filter-row" role="tablist" aria-label="Gallery Filters">
+      <button class="active" data-filter="all">सभी</button>
+      <button data-filter="wedding">शादी</button>
+      <button data-filter="prewedding">प्री-वेडिंग</button>
+      <button data-filter="events">इवेंट्स</button>
+    </div>
+
+    <div class="gallery" id="grid">
+      <img loading="lazy" src="prinsi8.jpg" alt="Photo 1" data-cat="wedding" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi5.jpg" alt="Photo 2" data-cat="wedding" data-aos="zoom-in" data-aos-delay="60">
+      <img loading="lazy" src="prinsi3.jpg" alt="Photo 3" data-cat="prewedding" data-aos="zoom-in" data-aos-delay="120">
+      <img loading="lazy" src="prinsi12.jpg" alt="Photo 4" data-cat="events" data-aos="zoom-in" data-aos-delay="180">
+      <img loading="lazy" src="prinsi11.jpg" alt="Photo 5" data-cat="wedding" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi15.jpg" alt="Photo 6" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi12.jpg" alt="Photo 7" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi22.jpg" alt="Photo 8" data-cat="wedding" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi29.jpeg" alt="Photo 9" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi30.jpeg" alt="Photo 10" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi31.jpeg" alt="Photo 11" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi32.webp" alt="Photo 12" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi33.jpeg" alt="Photo 13" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi34.jpeg" alt="Photo 14" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi35.jpeg" alt="Photo 15" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi36.jpeg" alt="Photo 16" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi40.jpeg" alt="Photo 17" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi38.jpeg" alt="Photo 18" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="prinsi39.jpeg" alt="Photo 19" data-cat="events" data-aos="zoom-in">
+      <img loading="lazy" src="pre.jpeg"     alt="Photo 20" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre1.jpeg"    akt="Photo 21" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre2.jpeg"    alt="Photo 22" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre3.jpeg"    alt="Photo 23" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre4.jpeg"    alt="Photo 24" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre5.jpeg"    alt="Photo 25" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre6.jpeg"    alt=Photo 26" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre7.jpeg"    alt="Photo 27" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre8.jpeg"    alt="Photo 28" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre9.jpeg"    alt="Photo 29" data-cat="prewedding" data-aos="zoom-in">
+      <img loading="lazy" src="pre11.jpeg"   alt="Photo 30" data-cat="prewedding" data-aos="zoom-in">
+      
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+    <span class="close" onclick="closeLightbox()">✕</span>
+    <img src="" alt="Enlarged photo" id="lightboxImg">
+  </div>
+
+  <section id="contact">
+    <h2>संपर्क करें</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="lead">यदि आप बुक करना चाहते हैं या कोई कस्टम पैकेज पूछना चाहते हैं तो नीचे संदेश भेजें या व्हाट्सएप पर लिखें।</p>
+        <div class="contact-card" data-aos="fade-right">
+          <form id="contactForm">
+            <label for="name">आपका नाम</label>
+            <input id="name" name="name" type="text" required placeholder="जैसे: राम कुमार" />
+            <lavel for="number"> फोन नम्बर </lavel>
+            <input id="phone" name="phone" type="tel" required placeholder="जैसे: 123xxxxxxxx" required/>
+            <label for="email">ईमेल</label>
+            <input id="email" name="email" type="email" required placeholder="आपका ईमेल" />
+            <label for="message">संदेश</label>
+            <textarea id="message" name="message" rows="5" required placeholder="आपका संदेश..."></textarea>
+            <button class="submit" type="submit">भेजें</button>
+          </form>
+        </div>
+      </div>
+      <aside class="contact-card" data-aos="fade-left">
+        <h3>स्टूडियो जानकारी</h3>
+        <p>📍 वार्ड नंबर 7, गढ़ीपुरा, कटेरा, झाँसी (उत्तर प्रदेश)</p>
+        <p>📞 <a href="tel:+917084527930">+91-7084527930</a></p>
+        <p>✉️ <a href="mailto:harjeetarya276@gmail.com">harjeetarya276@gmail.com</a></p>
+        <div style="margin-top:12px">
+          <a class="socials" href="https://www.instagram.com/jeetphotography2.0?igsh=MW96ZXB5NWV6YjJpbg==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="socials" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a class="socials" href="https://wa.me/917084527930" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>© 2025 कस्तुरी डिजिटल फोटो स्टूडियो • Designed by Prinsi Anuragi</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+    (function heroSlideshow(){
+      const layers = Array.from(document.querySelectorAll('.bg-layer')); let i=0;
+      function show(idx){ layers.forEach((el,k)=> el.classList.toggle('show', k===idx)); }
+      show(0); setInterval(()=>{ i=(i+1)%layers.length; show(i); },4200);
+    })();
+    (function typing(){ const el=document.getElementById('typingText'); const texts=["शादी की खूबसूरत यादें, हमेशा आपके साथ ❤","प्री-वেডिंग शूट • एल्बम डिज़ाइन • इवेंट कवरेज","आपके खास लम्हों को यादगार बनाना हमारा काम 💍"]; let tIdx=0,charIdx=0,forward=true; function tick(){ const txt=texts[tIdx]; if(forward){ charIdx++; if(charIdx===txt.length){ forward=false; setTimeout(tick,1500); return; } } else { charIdx--; if(charIdx===0){ forward=true; tIdx=(tIdx+1)%texts.length; } } el.textContent=txt.slice(0,charIdx); setTimeout(tick, forward?60:30); } tick(); })();
+    (function galleryFilter(){ const buttons=document.querySelectorAll('.filter-row button'); const imgs=document.querySelectorAll('.gallery img'); buttons.forEach(btn=>{ btn.addEventListener('click', ()=>{ buttons.forEach(b=>b.classList.remove('active')); btn.classList.add('active'); const filter=btn.dataset.filter; imgs.forEach(img=>{ img.style.display = (filter==='all' || img.dataset.cat===filter) ? '' : 'none'; }); }); }); })();
+    (function lightbox(){ const lb=document.getElementById('lightbox'); const lbImg=document.getElementById('lightboxImg'); document.querySelectorAll('.gallery img').forEach(img=>{ img.addEventListener('click', ()=>{ lbImg.src=img.src; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); }); }); window.closeLightbox=function(){ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); lbImg.src=''; }; lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); }); })();
+    document.getElementById('contactForm').addEventListener('submit', function(e){ e.preventDefault(); const name=encodeURIComponent(this.name.value.trim()); const email=encodeURIComponent(this.email.value.trim()); const message=encodeURIComponent(this.message.value.trim()); const subject=encodeURIComponent(`Booking/Query from ${name}`); const body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`); const mailto=`mailto:harjeetarya276@gmail.com?subject=${subject}&body=${body}`; window.location.href=mailto; this.reset(); alert('धन्यवाद! आपका संदेश भेजने की कोशिश कर रहे हैं — यदि मेलक्लाइंट खुलता है तो भेज दें, अन्यथा WhatsApp का उपयोग करें।'); });
+    document.getElementById('hamb').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+  </script>
+</body>
+</html>
